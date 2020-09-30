@@ -1,0 +1,50 @@
+---
+title: "課堂練習模版"
+author: "derek"
+date: "2020-09-30"
+output: output_format
+params:
+  id: "410672074"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+install.packages(c("googlesheets4","tidyverse"))#用指令安裝套件
+library(googlesheets4) #即可在此project內使用此package的函數
+purl("2020-09-30.Rmd") # R 4.0.2不能用這個套件(?，可以生成無註解的code檔
+
+```
+
+
+```{r}
+#ctrl+alt+I 可以直接生成一個Chunk，就不用複製了
+a = 2 # =與<-同義
+.Last.value #最後執行的數值
+```
+
+
+```{r}
+my_108_total_credits <- 15
+`_108_total_credits` <- 15
+`108_total_credits` <- 15
+`_my_108_total_credits` <- 15
+my.108.total_credits <- 15
+`.108.total_credits` <- 15 # 隱藏變數，最前面為點會藏起來但他是存在的
+.my.108.total_credits <- 15
+我的108學年總學分數 <- 15
+`我的108學年總學分數` <- 15 # 特殊名稱處理，`不是名稱的一部份
+`.108.total_credits` <- 15
+#snake/camel 命名法，目前感覺用camel的方法命名好一點，且最好命名第一個字都是小寫
+```
+
+
+```{r}
+`我的年紀` <- 20
+my_age <- `我的年紀`
+```
+
