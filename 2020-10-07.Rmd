@@ -1,0 +1,100 @@
+---
+title: "課堂練習模版"
+author: "derek"
+date: "2020-10-07"
+output: output_format
+params:
+  id: "410672074"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+#crtl+alt+i =新增一個chunk
+```{r}
+"我的年紀"<- 20
+my_age <- 我的年紀
+#ls() 查看所有已存在的values(只有在GLOBAL ENVIORMENT)，建議用find("object name")
+
+```
+
+```{r}
+myName <- "Mary"
+length(myName) # 查看物件本身代表幾個值。
+```
+
+```{r}
+num1 <- 5
+vNum1 <- c(2,5)
+vNum2 <- c(2, num1)
+```
+
+```{r}
+vNum1 <- vNum2
+vNum2 <-c(2, vNum1)
+```
+
+```{r}
+heightsoftheEntireClassroom <- c() #設立空集合
+```
+
+```{r}
+heightsofAStudentComingInsideTheClassroom <- sample(165:200,1) #產生一新身高
+```
+
+```{r}
+heightsoftheEntireClassroom<- c(heightsoftheEntireClassroom,heightsofAStudentComingInsideTheClassroom)
+#利用堆疊特性達成紀錄所有進來學生的身高這個目的
+```
+
+```{r}
+c(5,"Mary")  #這裡R很貼心的會幫你把5認為是文字而非數字，但不要把不同型態的放一起。
+c(5,7)
+c("John","Mary")
+c(T,TRUE,F,FALSE) #logical
+c(T,T,F,F) #可只打第一個大寫字母
+```
+
+```{r}
+num1<-5 # 非整數
+num2<-5L # 整數
+
+num1Vector<-c(5,6,7)
+num2Vector<-c(5L,6L,7L)
+
+object.size(num1)  #觀看耗掉多少記憶體
+object.size(num2)
+object.size(num1Vector)
+object.size(num2Vector)
+```
+
+```{r}
+typeof(num1)  #由儲存的觀點看他是什麼
+typeof(num2)  #integer是整數。
+```
+
+```{r}
+char1Vector<-c("你好","How are you?")
+```
+
+```{r}
+dialogue <- c('小明說："明天不用上課。"'
+              ,'小花說："真的嗎？"')
+#當內容字串已用雙引號框起來時，外面要再框則需要用單引來框，反之則相反。
+dialogue # 顯示原始值的內容（含輸入時的引號）
+cat(dialogue, sep="\n") # 顯示給人類看（含存出來）的值，sep="\n", 不同元素換行陳列。
+writeLines(dialogue, "conversation.txt") # cat顯示的正是存出來樣貌。
+
+\ #反斜線為跳脫程式框架，跳脫本來的意思 Eg:n本來就為n，\n為換行的意思。
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
