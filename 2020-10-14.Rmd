@@ -1,0 +1,68 @@
+---
+title: "課堂練習模版"
+author: "derek"
+date: "2020-10-14"
+output: output_format
+params:
+  id: "410672074"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+"\u0928\u092e\u0938\u094d\u0924\u0947 \u0926\u0941\u0928\u093f\u092f\u093e"
+```
+
+```{r}
+num <- c(1.5, 2, 3)
+int <- c(1L, 3L, -2L)
+char <- c("1.5","2","3")
+logi <- c(T,T,F)
+
+typeof(num)
+typeof(int)
+typeof(char)
+typeof(logi)
+#不同的class原則上是不能一起做運算的 (除了數字+整數num+int)
+```
+
+```{r}
+# 10位學生的主系，字串向量(character形式)
+majors10_char <- c('經濟學系','社會學系','社會學系','經濟學系','經濟學系','社會學系','經濟學系','經濟學系','經濟學系','社會學系')
+
+typeof(majors10_char)
+class(majors10_char)
+```
+
+```{r}
+#類別形式(factor)
+majors10_factor <- factor(majors10_char)
+# 或
+majors10_factor <- factor(
+  c('經濟學系','社會學系','社會學系','經濟學系','經濟學系','社會學系','經濟學系','經濟學系','經濟學系','社會學系')
+)
+
+typeof(majors10_factor)
+class(majors10_factor)
+#為何factor用整數(即integer)來存? 
+#A:統計軟體省記憶空間的手法，如這裡經濟學系記為2L 社會學系記為1L
+```
+
+```{r 轉換型態R}
+a <- "1"
+as.numeric(a) -> a # r語言必須要再指定回去a，因為他一開始只會把"1"變成1而a則沒變
+                   #所以如果沒指回去下面那行是無法運算的
+a+4
+```
+
+```{r}
+majors10_char
+majors10_factor
+#因為class的不同導致存取方式不同
+as.integer(majors10_factor)  #找出電腦是怎麼儲存的下來的(得知經濟系為2 社會系為1)
+```
+
