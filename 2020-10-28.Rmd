@@ -1,0 +1,126 @@
+---
+title: "課堂練習模式"
+author: "derek"
+date: "2020-10-28"
+output: output_format
+params:
+  id: "410672074"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+vectorExample <- c("小明","小英","大雄")
+vectorExamplewithname <- c("p1"="小明","p2"="小英","p3"="大雄") #有命名可以使用更多方式叫他
+vectorExamplewithname[["p3"]]
+```
+
+```{r}
+listExample <- list(student = "小明", 學期 = list(`108-1` = list(list(name = "個體經濟學", 
+    teacher = "Alice", grade = 85)), `108-2` = list(list(name = "總體經濟學", 
+    teacher = "Mark", grade = 78))))
+# 有多少位置可選：
+length(listExample)
+
+listExample[[1]]
+listExample[[2]]
+```
+
+```{r}
+#$的叫法是list獨有的，而且只能呼叫有命名的，亦即atomic factor即使命名也不能用。
+listExample[["student"]]
+listExample$student
+
+listExample[["學期"]]  # 小心不是反頓點喔。
+listExample$學期
+```
+
+```{r}
+#雖然atomic factor只中括一個就可以叫，但list的狀況下就會有所不同，所以建議還是都雙中括號吧
+vectorExample[c(1)]
+vectorExample[1]
+vectorExample[[1]]
+```
+
+```{r}
+vectorExamplewithname[c(1, "p3")] # c <-我要的是atomic factor所以要是一樣的東西才能跑。 (X)
+vectorExamplewithname[c("p1", "p3")]
+```
+
+```{r}
+#logical 不要的向量也要寫不要(F)
+vectorExamplewithname[c(T,F,T)]
+vectorExamplewithname[c(TRUE,FALSE,T)]
+```
+
+```{r}
+#也可以先令再丟進去
+pickbynumber <- c(1,3)
+pickbyname <- c("p1","p3")
+pickbylogical <- c(T,F,T)
+
+vectorExamplewithname[pickbynumber]
+vectorExamplewithname[pickbyname]
+vectorExamplewithname[pickbylogical]
+```
+
+```{r} 
+numVector <- c(2, 3, 6, -1, 4, 2, 6)
+select1 <- numVector[c(1, 4)]
+select1
+select2 <- select1[[1]]
+select2
+
+# 相當於   可以直接接在後面連取的
+numVector[c(1, 4)][[1]]
+
+```
+
+```{r}
+majorsstudent <- c("經濟學系", "經濟學系", "社會學系", "社工系", "經濟學系")
+namesstudent <- c("小英", "小美", "大雄", "阿華", "阿尼")
+genderstudent <- c("F", "F", "M", "F", "M")
+
+pickEcon <- c(T,T,F,F,T)   #也可以邏輯判斷 majorsstudent == "經濟學系"
+namesstudent[pickEcon]
+genderstudent[pickEcon]
+whichWasEcon <- which(pickEcon) #which通常都是文字轉數字
+```
+
+```{r}
+today <- list(list("台北市", c(highest_temp = 25), c(lowest_temp = 18)), list("新北市", 
+    highest_temp = c(highest_temp = 24), c(lowest_temp = 15)))
+tomorrow <- list(list("台北市", c(highest_temp = 25), c(lowest_temp = 18)), list("新北市", 
+    highest_temp = c(highest_temp = 24), c(lowest_temp = 15)))
+
+weather <- list(today, tomorrow)
+
+print(weather)
+```
+
+```{r}
+#先看一下結構
+str(weather,1)
+str(weather,2)
+str(weather,3)
+```
+
+```{r}
+weather[[1]][[2]][[2]][["highest_temp"]]  # 今天/新北市/highest_temp
+weather[[2]][[2]][[2]][["highest_temp"]]  # 明天/新北市/highest_temp
+```
+
+```{r}
+weather[[1]][[2]]$highest_temp[["highest_temp"]]  # 今天/新北市/highest_temp
+weather[[2]][[2]]$highest_temp[["highest_temp"]]  # 明天/新北市/highest_temp
+```
+
+```{r}
+#note
+#可一次改兩個裡面的元素，但結構上都要和原本符合。
+```
+
