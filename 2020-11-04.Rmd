@@ -1,0 +1,45 @@
+---
+title: "課堂練習模板"
+author: "derek"
+date: "2020-11-04"
+output: html_format
+paramas:
+  id: "410672074"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+gender = "女"
+school = "國立臺北大學"
+title  = "問 泰昇補習班打工"
+content = "有在版上看過很多北大附近補習班打工不推的\n不過好像還沒看到泰昇這間的評價\n請問大家還可以嗎?"
+cat(content)
+tags = ""
+timestamp = ""
+```
+
+
+```{r}
+photos
+"https;//ww.dcard.tw/f/male.jpg"
+"https://ww.dcard.tw/f/female.jpg"
+```
+
+```{r}
+#資料結構 美國大選
+America_president_election <- list(
+  time = c(ymd_hm("2020-11-04 14:59"),ymd_hm("2020-11-04 15:00")),
+  Biden = c("224","230"),
+  Trump = c("213","215"),
+  win_election = "270"
+)#新資料進來使用堆疊的方式，橫著堆或直的堆
+
+```
+
+
