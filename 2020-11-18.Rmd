@@ -1,0 +1,61 @@
+---
+title: "課堂練習模式"
+author: "derek"
+date: "2020/11/18"
+output: output_format
+params:
+  id: "410672074"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+```{r}
+example <- list(
+  name=c("小明","小花","小新","美美"),
+  height=c(175,166,170,160),
+  weight=c(77,NA,60,43),
+  birthday=lubridate::ymd(c("1998-03-11","1999-12-22","1995-08-22","2001-10-10")),
+  hobby=c("美食 旅遊","旅遊 時尚","3C 美食","音樂 旅遊"),
+  residence=c("Taipei","New Taipei","Taichung","Kaohsiung"),
+  allowance=factor(c("0-1000","1001-2000","2000+","1001-2000")),
+  bloodType=c("A","B","B","O")
+)
+#狹義的list，因為他裡面的元素都等長(此例都=4)  <- 可等於dataframe
+```
+
+```{r}
+tr_example <- purrr::transpose(example) # = library(purrr)
+                                        #   tr_example <- transpose(example)
+str(tr_example)
+```
+
+```{r}
+df_example <- as.data.frame(example)
+#轉成dataframe，過去list的element 變成在dataframe裡的variables
+```
+
+```{r}
+tr_tr_example <- purrr::transpose(tr_example)
+```
+
+```{r}
+# 使用list的工具
+df_example$name[c(1,4)] #還沒交dataframe之前的拿法
+
+# 使用data frame的延伸工具`[.row, .column]`
+df_example[c(1,4), "name"]
+df_example[c(1,4), 1]
+df_example[c(1,4), c(T,rep(F,7))] #repeat F七次
+
+df_example[c(1),1:8] #冒號=~
+df_example[1,] #R設計的很好，沒打就認為你全要，其他程式語言不一定這麼好
+```
+
+```{r}
+df_example[1,][[5]] #character
+df_example[1,][5] #和上面不一樣，他是dataframe 影片1.5說明不同
+```
+
